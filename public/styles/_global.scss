@@ -1,0 +1,62 @@
+// ---
+// GLOBAL
+//
+// Global styles and typography definitions
+// ---
+
+// Layout
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// Typography
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-size: $base-font-size;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3.75rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 300;
+  color: $black;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// Remove default button styles for accessibility
+button {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  font-size: 1em;
+  color: inherit;
+  background: none;
+}

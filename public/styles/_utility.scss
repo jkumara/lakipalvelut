@@ -1,0 +1,16 @@
+// ---
+// Utility
+//
+// Atomic utility classes.
+// ---
+
+.wrapper {
+  width: 100%;
+  max-width: $content-max-width;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  @include from(lg) {
+	padding: 0;
+  }
+}

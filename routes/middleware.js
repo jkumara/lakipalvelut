@@ -1,6 +1,3 @@
-var _ = require('lodash');
-
-
 /**
 	Initialises the standard view locals
 */
@@ -11,21 +8,6 @@ exports.initLocals = function (req, res, next) {
 		{ label: 'Contact', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
-	next();
-};
-
-
-/**
-	Fetches and clears the flashMessages before a view is rendered
-*/
-exports.flashMessages = function (req, res, next) {
-	var flashMessages = {
-		info: req.flash('info'),
-		success: req.flash('success'),
-		warning: req.flash('warning'),
-		error: req.flash('error'),
-	};
-	res.locals.messages = _.some(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
 	next();
 };
 
