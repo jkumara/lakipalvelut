@@ -1,25 +1,24 @@
 /**
 	Initialises the standard view locals
 */
-exports.initLocals = function (req, res, next) {
+exports.initLocals = (req, res, next) => {
 	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
-	];
-	res.locals.user = req.user;
-	next();
-};
-
+		{ label: 'Esittely', key: 'introduction', href: '#esittely' },
+		{ label: 'Palvelut', key: 'services', href: '#palvelut' },
+		{ label: 'Hinnasto', key: 'prices', href: '#hinnasto' },
+		{ label: 'Ota yhteyttä', key: 'contact', href: '#ota-yhteytta' }
+	]
+	res.locals.user = req.user
+	next()
+}
 
 /**
 	Prevents people from accessing protected pages when they're not signed in
  */
-exports.requireUser = function (req, res, next) {
+exports.requireUser = (req, res, next) => {
 	if (!req.user) {
-		req.flash('error', 'Please sign in to access this page.');
-		res.redirect('/keystone/signin');
+		res.redirect('/keystone/signin')
 	} else {
-		next();
+		next()
 	}
-};
+}

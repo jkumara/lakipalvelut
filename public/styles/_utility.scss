@@ -1,7 +1,7 @@
 // ---
 // Utility
 //
-// Atomic utility classes.
+// Utility classes.
 // ---
 
 .wrapper {
@@ -13,4 +13,43 @@
   @include from(lg) {
 	padding: 0;
   }
+}
+
+.small-wrapper {
+  width: 100%;
+  max-width: $small-wrapper-max-width;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  @include from(lg) {
+	padding: 0;
+  }
+}
+
+.section-title {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.row.no-gutter {
+	margin-right: 0;
+	margin-left: 0;
+
+  & > [class^="col-"] {
+	padding: 0;
+  }
+}
+
+.line-height-0 {
+  line-height: 0;
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
 }

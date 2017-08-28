@@ -1,0 +1,41 @@
+.pr-Prices {
+  padding: 3em;
+  
+  font-size: 1rem;
+  background: $black;
+  color: $white;
+
+	background: url('/images/bg2.jpg') $black;
+	background-position: bottom center;
+	background-size: cover;
+}
+
+.srv-PriceDisclaimers {
+  font-size: 1.2em;
+}
+
+.pr-SectionTitle {
+  margin-top: 0;
+}
+
+.pr-Price {
+	margin: 2em 0;
+  text-align: center;
+}
+
+.pr-Price_Title {
+  margin: 0;
+  
+  font-size: 1.25em;
+  color: $white;
+}
+
+.pr-Price_Description {
+  
+}
+
+.pr-Price_Icon {
+	display: inline-block;
+	margin: 0.25em 0;
+	font-size: 4em;
+}

@@ -25,13 +25,14 @@ exports = module.exports = function (req, res) {
 			errorMessage: 'There was a problem submitting your enquiry:',
 		}, function (err) {
 			if (err) {
-				locals.validationErrors = err.errors;
+				locals.validationErrors = err.errors
 			} else {
-				locals.enquirySubmitted = true;
+				locals.enquirySubmitted = true
 			}
-			next();
-		});
-	});
 
-	view.render('contact');
-};
+			next()
+		})
+	})
+
+	view.render('contact')
+}

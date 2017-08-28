@@ -1,0 +1,77 @@
+.srv-Services {
+}
+
+.srv-ServiceWrapper {
+	margin-bottom: 1em;
+}
+
+.srv-ServiceContentWrapper {
+	padding-right: 0.5em;
+	border: 1px solid $black;
+	border-left-width: 0;
+
+	&.srv-ServiceContentWrapper-Left {
+		border-left-width: 1px;
+		border-right-width: 0;
+	}
+}
+
+.srv-Service {
+	padding: 1em;
+}
+
+.srv-ServiceImage {
+	width: 100%;
+	filter: grayscale(100%);
+	transition: filter 0.3s;
+	
+	.srv-ServiceWrapper:hover & {
+		filter: grayscale(0%);
+	}
+}
+
+.srv-Service_Title {
+  margin: 0 0 1em;
+	
+	font-size: 1.5em;
+}
+
+.srv-Service_Title_Text {
+  display: inline-block;
+}
+
+.srv-Service_Subtitle {
+  margin: 2em 0 1em;
+  font-size: 1em;
+}
+
+.src-Service_ReadMoreWrapper {
+	margin-top: 1em;
+}
+
+.src-Service_ReadMore { 
+	display: inline-block;
+	padding: 0.5em 1em;
+	
+	background: $black;
+	color: $white;
+	
+	transition: all 0.15s ease-in-out;
+	
+	&:hover {
+		background: $white;
+		color: $black;
+		box-shadow: 0 0 1em rgba($black, 0.2);
+		transform: scale(1.05);
+	}
+}
+
+.src-Service_ReadMore_Icon {
+	vertical-align: middle;
+}
+
+.srv-ServiceDisclaimers {
+	text-align: center;
+  font-size: 2em;
+  margin: 2em 0;
+}

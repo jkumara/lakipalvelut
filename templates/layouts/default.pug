@@ -6,8 +6,25 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= title || 'titteli...'
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		title= title || 'Laki- ja asiakirjapalvelut Kumara - Juridiset asiakirjat luotettavasti ja ammattitaitoisesti'
+
+		link(rel='apple-touch-icon', sizes='57x57', href='/app-icons/apple-icon-57x57.png')
+		link(rel='apple-touch-icon', sizes='60x60', href='/app-icons/apple-icon-60x60.png')
+		link(rel='apple-touch-icon', sizes='72x72', href='/app-icons/apple-icon-72x72.png')
+		link(rel='apple-touch-icon', sizes='76x76', href='/app-icons/apple-icon-76x76.png')
+		link(rel='apple-touch-icon', sizes='114x114', href='/app-icons/apple-icon-114x114.png')
+		link(rel='apple-touch-icon', sizes='120x120', href='/app-icons/apple-icon-120x120.png')
+		link(rel='apple-touch-icon', sizes='144x144', href='/app-icons/apple-icon-144x144.png')
+		link(rel='apple-touch-icon', sizes='152x152', href='/app-icons/apple-icon-152x152.png')
+		link(rel='apple-touch-icon', sizes='180x180', href='/app-icons/apple-icon-180x180.png')
+		link(rel='icon', type='image/png', sizes='192x192', href='/app-icons/android-icon-192x192.png')
+		link(rel='icon', type='image/png', sizes='32x32', href='/app-icons/favicon-32x32.png')
+		link(rel='icon', type='image/png', sizes='96x96', href='/app-icons/favicon-96x96.png')
+		link(rel='icon', type='image/png', sizes='16x16', href='/app-icons/favicon-16x16.png')
+		link(rel='manifest', href='/app-icons/manifest.json')
+		meta(name='msapplication-TileColor', content='#ffffff')
+		meta(name='msapplication-TileImage', content='/app-icons/ms-icon-144x144.png')
+		meta(name='theme-color', content='#ffffff')
 
 		link(href="/styles/site.css", rel="stylesheet")
 
@@ -15,20 +32,26 @@ html
 		block head
 
 	body
-		header.header
-			nav
-				a.navbar-brand(href='/') lakipalvelut-kumara
-				ul
-					each link in navLinks
-						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-
+		header.hd-Header.js-Header
+			.wrapper
+				.row.middle-xs
+					.col-xs-12.text-right
+						nav.hd-Nav
+							ul.hd-LinkList
+								each link in navLinks
+									li.hd-LinkList_Item
+										a(href=link.href).hd-Link= link.label
+										span.hd-LinkSeparator &middot;
 		main
 			block intro
 			block content
 
 		footer.ftr-Footer
 			p Footer
-
+			
+		//- SVG
+		include ../inlined-svg.html
+			
 		//- Load Google Fonts
 		script(src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
 		script.
@@ -36,9 +59,54 @@ html
 				google: {
 					families: ['Muli:300,300i,600,600i,900,900i']
 				}
-			});
+			})
 
 		//- JavaScript
+		script.
+			function throttle(fn, threshhold, scope) {
+				threshhold || (threshhold = 250)
+				var last, deferTimer
 
+				return function () {
+					var context = scope || this
+			
+					var now = +new Date
+					var args = arguments
+
+					if (last && now < last + threshhold) {
+						// hold on to it
+						clearTimeout(deferTimer);
+						deferTimer = setTimeout(function () { last = now; fn.apply(context, args)}, threshhold);
+					} else {
+						last = now
+						fn.apply(context, args)
+					}
+				};
+			}
+
+			(function() {
+				var header = document.querySelector('.js-Header'),
+					threshold = 0,
+					isFloating = false
+
+				function toggleIsFloating() {
+					if (header.className.indexOf('is-Floating') > -1) {
+						header.className = header.className.replace(/ is-Floating/i, '')
+					} else {
+						header.className = header.className + ' is-Floating'						
+					}
+				}
+				
+				function handleScroll() {
+					var shouldFloat = window.scrollY > threshold
+					if (shouldFloat !== isFloating) {
+						toggleIsFloating()
+						isFloating = shouldFloat
+					}
+				}
+
+				window.addEventListener('scroll', throttle(handleScroll, 300), true)
+			})()
+			
 		//- Include template-specific javascript files by extending the js block
 		block js

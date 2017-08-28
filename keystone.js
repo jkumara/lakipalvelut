@@ -1,9 +1,9 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').config();
+require('dotenv').config()
 
 // Require keystone
-var keystone = require('keystone');
+const keystone = require('keystone')
 
 keystone.init({
 	'name': 'lakipalvelut-kumara',
@@ -11,7 +11,7 @@ keystone.init({
 
 	'sass': 'public',
 	'static': 'public',
-	'favicon': 'public/favicon.ico',
+	'favicon': 'public/app-icons/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'pug',
 
@@ -20,23 +20,26 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User',
-});
-keystone.import('models');
+	'user model': 'User'
+})
+
+keystone.import('models')
+
 keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
-});
-keystone.set('routes', require('./routes'));
+})
+
+keystone.set('routes', require('./routes'))
 
 keystone.set('nav', {
-	posts: ['posts', 'post-categories'],
+	introduction: 'Introduction',
+	catalog: ['services', 'prices'],
 	enquiries: 'enquiries',
-	users: 'users',
-});
-
+	users: 'users'
+})
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 	console.log('----------------------------------------'
@@ -48,5 +51,4 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 	+ '\nset up your mailgun integration');
 }
 
-
-keystone.start();
+keystone.start()
