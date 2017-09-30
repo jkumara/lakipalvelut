@@ -1,15 +1,17 @@
 @import "../vendor/normalize.css",
-		"../vendor/animate.css",
-		"../vendor/flexboxgrid.css";
+	"../vendor/animate.css",
+	"../vendor/flexboxgrid.css";
 
 @import "variables",
-		"media",
-		"scim-gradient",
-		"utility",
-		"global";
+	"media",
+	"scim-gradient",
+	"utility",
+	"global";
 
 @import "components/hero",
-		"components/header",
-		"components/intro",
-		"components/services",
-		"components/prices";
+	"components/header",
+	"components/intro",
+	"components/services",
+	"components/prices",
+	"components/footer",
+	"components/contact";

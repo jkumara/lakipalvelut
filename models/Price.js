@@ -10,8 +10,7 @@ Price.add({
 	title: { type: String, required: true, initial: true },
 	pricing: { type: String, required: true, initial: true },
 	icon: { type: String, options: 'euro, car, scales', default: 'euro', initial: true },
-	hidden: { type: Types.Select, options: 'no, yes', default: 'no', index: true, initial: true },
-	extraDetails: { type: String, initial: true }
+	hidden: { type: Types.Select, options: 'no, yes', default: 'no', index: true, initial: true }
 })
 
 Price.defaultColumns = 'title, pricing|20%, extraDetails|20%, hidden|20%'

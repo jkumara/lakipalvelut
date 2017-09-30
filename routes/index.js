@@ -14,4 +14,5 @@ const routes = {
 exports = module.exports = app => {
 	// Views
 	app.get('/', routes.views.index)
+	app.get('/:palvelut', routes.views.services);
 }

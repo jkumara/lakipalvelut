@@ -1,5 +1,5 @@
 .pr-Prices {
-  padding: 3em;
+	padding: 1.5em 0;
   
   font-size: 1rem;
   background: $black;
@@ -8,10 +8,16 @@
 	background: url('/images/bg2.jpg') $black;
 	background-position: bottom center;
 	background-size: cover;
+
+	@include from(sm) {
+		padding: 3em 0;
+	}
 }
 
 .srv-PriceDisclaimers {
-  font-size: 1.2em;
+	@include from(sm) {
+		font-size: 1.2em;
+	}
 }
 
 .pr-SectionTitle {

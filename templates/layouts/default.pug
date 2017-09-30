@@ -6,8 +6,16 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= title || 'Laki- ja asiakirjapalvelut Kumara - Juridiset asiakirjat luotettavasti ja ammattitaitoisesti'
+		title= title || 'Laki- ja asiakirjapalvelut Kumara'
 
+		meta(property="og:title" content="Laki- ja asiakirjapalvelut Kumara")
+		meta(property="og:description" content="Juridiset asiakirjat luotettavasti ja ammattitaitoisesti. Edunvalvontavaltakirjat ja muut asiakirjat, sekä kaupanvahvistukset.")
+		meta(property="og:image" content="/images/og-image.jpg")
+		meta(property="og:url" content="http://lakipalvelut-kumara.fi")
+		meta(name="twitter:card" content="Juridiset asiakirjat luotettavasti ja ammattitaitoisesti. Edunvalvontavaltakirjat ja muut asiakirjat, sekä kaupanvahvistukset.")
+		meta(property="og:site_name" content="Laki- ja asiakirjapalvelut Kumara")
+		meta(name="twitter:image:alt" content="Laki- ja asiakirjapalvelut Kumara - Juridiset asiakirjat luotettavasti ja ammattitaitoisesti")
+		
 		link(rel='apple-touch-icon', sizes='57x57', href='/app-icons/apple-icon-57x57.png')
 		link(rel='apple-touch-icon', sizes='60x60', href='/app-icons/apple-icon-60x60.png')
 		link(rel='apple-touch-icon', sizes='72x72', href='/app-icons/apple-icon-72x72.png')
@@ -34,20 +42,25 @@ html
 	body
 		header.hd-Header.js-Header
 			.wrapper
-				.row.middle-xs
-					.col-xs-12.text-right
-						nav.hd-Nav
-							ul.hd-LinkList
-								each link in navLinks
-									li.hd-LinkList_Item
-										a(href=link.href).hd-Link= link.label
-										span.hd-LinkSeparator &middot;
+				nav.hd-Nav
+					ul.hd-LinkList
+						each link in navLinks
+							li.hd-LinkList_Item
+								a(href=link.href).hd-Link= link.label
+								span.hd-LinkSeparator &middot;
 		main
-			block intro
+			section.hr-Hero.js-Hero
+				.hr-LogoWrapper
+					img(src='/images/logo-white.png', alt='Laki- ja asiakirjapalvelut Kumara').hr-Logo
+					.hr-SloganWrapper
+						h1.hr-Slogan Laki- ja asiakirjapalvelut Kumara
+						p.hr-Subtitle Juridiset asiakirjat luotettavasti ja ammattitaitoisesti
+
 			block content
 
 		footer.ftr-Footer
-			p Footer
+			p &copy; #{new Date().getFullYear()} Markus Kumara
+			p Laki- ja asiakirjapalvelut Kumara &middot; 2844052-6
 			
 		//- SVG
 		include ../inlined-svg.html

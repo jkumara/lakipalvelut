@@ -20,7 +20,12 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+	'wysiwyg menubar': true,
+	'wysiwyg skin': 'lightgray',
+	'wysiwyg additional plugins': 'autosave, advlist, searchreplace, textcolor, media, image',
+	'wysiwyg additional buttons': 'forecolor backcolor, image media, searchreplace'
 })
 
 keystone.import('models')
@@ -37,7 +42,6 @@ keystone.set('routes', require('./routes'))
 keystone.set('nav', {
 	introduction: 'Introduction',
 	catalog: ['services', 'prices'],
-	enquiries: 'enquiries',
 	users: 'users'
 })
 

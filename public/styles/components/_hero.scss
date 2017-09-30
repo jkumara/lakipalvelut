@@ -4,7 +4,7 @@
   align-items: center;
 
   width: 100%;
-  height: 37.5em;
+  height: 22.5em;
 	
   background: url('/images/hero-bg.jpg') $black;
   background-position: bottom center;
@@ -12,6 +12,14 @@
 
   font-size: 1rem;
   color: $white;
+
+	@media screen and (min-width: 25em) {
+		height: 25em;
+	}
+
+	@include from(sm) {
+		height: 37.5em;
+	}
 }
 
 .hr-LogoWrapper {
@@ -20,8 +28,13 @@
 }
 
 .hr-Logo {
-  width: 13.75em;
-  margin-bottom: 2em;
+  width: 8.25em;
+  margin-bottom: 1em;
+	
+	@include from(sm) {
+		width: 13.75em;
+		margin-bottom: 2em;
+	}
 }
 
 .hr-SloganWrapper {
@@ -30,16 +43,30 @@
 .hr-Slogan {
   display: inline-block;
   
-  font-size: 2em;
+  font-size: 1.05em;
   margin: 0 0 0.5em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid $white;
   
   text-transform: uppercase;
+
+	@media screen and (min-width: 25em) {
+		font-size: 1.25em;
+	}
+
+	@include from(sm) {
+		font-size: 2em;
+		margin: 0 0 0.5em;
+		padding-bottom: 0.5em;
+	}
 }
 
 .hr-Subtitle {
   margin: 0;
 
-  font-size: 1.5em;
+  font-size: 1em;
+
+	@include from(sm) {
+		font-size: 1.5em;
+	}
 }

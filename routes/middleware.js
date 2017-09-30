@@ -3,10 +3,10 @@
 */
 exports.initLocals = (req, res, next) => {
 	res.locals.navLinks = [
-		{ label: 'Esittely', key: 'introduction', href: '#esittely' },
-		{ label: 'Palvelut', key: 'services', href: '#palvelut' },
-		{ label: 'Hinnasto', key: 'prices', href: '#hinnasto' },
-		{ label: 'Ota yhteyttä', key: 'contact', href: '#ota-yhteytta' }
+		{ label: 'Esittely', key: 'introduction', href: '/#esittely' },
+		{ label: 'Palvelut', key: 'services', href: '/#palvelut' },
+		{ label: 'Hinnasto', key: 'prices', href: '/#hinnasto' },
+		{ label: 'Ota yhteyttä', key: 'contact', href: '/#ota-yhteytta' }
 	]
 	res.locals.user = req.user
 	next()

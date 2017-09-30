@@ -2,125 +2,68 @@ extends ../layouts/default
 include ../mixins/icon
 
 block content
-	section.hr-Hero.js-Hero
-		.hr-LogoWrapper
-			img(src='/images/logo-white.png', alt='Laki- ja asiakirjapalvelut Kumara').hr-Logo
-			.hr-SloganWrapper
-				h1.hr-Slogan Laki- ja asiakirjapalvelut Kumara
-				p.hr-Subtitle Juridiset asiakirjat luotettavasti ja ammattitaitoisesti
-
 	section.in-Intro
-		.small-wrapper
-			h2 Hei!
-			p Olen Markus Kumara, jyväskyläläinen lakimies.
-			p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
-			p Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna condimentum vel, placerat id blandit sit amet tortor.
+		.anchor#esittely
+		.small-wrapper!= data.introduction.introduction
 		.wrapper
 			.in-IntroDetailsWrapper
 				.row.no-gutter.line-height-0
 					.col-xs-12.col-sm-6.in-IntroImageWrapper
 						img(src='/images/cropped-render.jpg', alt='Markus Kumara').in-IntroImage
 					.col-xs-12.col-sm-6
-						div.in-IntroDetails
-							h4 Markus Kumara
-							p s. 1989
-	
-							h5 KOULUTUS
-							p Oikeustieteen maisteri, Lapin yliopisto
-	
-							h5 ERITYISOSAAMINEN
-							p
-								|	Edunvalvontaoikeus
-								br
-								| Kuluttajaoikeus
-							
-							h5 OIKEUDELLINEN TYÖKOKEMUS
-							h6 Keski-Suomen edunvalvontatoimisto
-							p Yleinen edunvalvonta
-	
-							h6 Sisä-Suomen maistraatti
-							p 
-								| Ylitarkastaja, holhoustoimi
-								br
-								| Kuluttajaoikeusneuvoja
-								br
-								| Julkinen notaari / kaupanvahvistaja
+						div.in-IntroDetails!= data.introduction.experience
 
 	section.srv-Services
 		.small-wrapper
+			.anchor#palvelut
 			h2.section-title Palvelut
-			.row.no-gutter.srv-ServiceWrapper
-				.col-xs-12.col-sm-4.srv-ServiceImageWrapper.line-height-0
-					img(src='/images/signing-cropped.jpg', alt='Mies allerkirjoittaa valtakirjaa').srv-ServiceImage
-				.col-xs-12.col-sm-8.srv-ServiceContentWrapper
-					.srv-Service
-						h3.srv-Service_Title
-							span.srv-Service_Title_Text Edunvalvontavaltakirja
-						p Edunvalvontavaltakirjan avulla henkilö voi etukäteen määrätä jonkun hoitamaan asioitaan sen varalta, että tulee itse kykenemättömäksi hoitamaan niitä, esimerkiksi sairauden vuoksi.
-						.src-Service_ReadMoreWrapper
-							a(href="#").src-Service_ReadMore Lue lisää
-								span.src-Service_ReadMore_Icon
-									+icon('arrow')
-
-			.row.no-gutter.srv-ServiceWrapper
-				.col-xs-12.col-sm-8.srv-ServiceContentWrapper.srv-ServiceContentWrapper-Left
-					.srv-Service
-						h3.srv-Service_Title
-							span.srv-Service_Title_Text Muut asiakirjat
-						p Testamentit, avioehtosopimukset, hoitotahdot, lahja- ja kauppakirjat, sekä monet muut oikeudelliset asiakirjat ammattitaidolla.
-						p Oletko esim. myymässä kiinteistöä ilman välittäjää? Kauttani saat asiakirjojen lisäksi myös kaupanvahvistuksen.
-						.src-Service_ReadMoreWrapper
-							a(href="#").src-Service_ReadMore Lue lisää
-								span.src-Service_ReadMore_Icon
-									+icon('arrow')
-				.col-xs-12.col-sm-4.srv-ServiceImageWrapper.line-height-0
-					img(src='/images/signing2-cropped.jpg', alt='Lakimies allekirjoittaa asiakirjaa').srv-ServiceImage
-
-			.row.no-gutter.srv-ServiceWrapper
+			each service, index in data.services
+				div.row.no-gutter.srv-ServiceWrapper(class = index % 2 === 0 ? 'srv-ServiceWrapper-Left' : '')
 					.col-xs-12.col-sm-4.srv-ServiceImageWrapper.line-height-0
-						img(src='/images/handshake-cropped.jpg', alt='Miehet puristavat kättä').srv-ServiceImage
+						img(src=service.imagePath).srv-ServiceImage
 					.col-xs-12.col-sm-8.srv-ServiceContentWrapper
 						.srv-Service
 							h3.srv-Service_Title
-								span.srv-Service_Title_Text Kaupanvahvistus
-							p Kiinteistönluovutus edellyttää kaupanvahvistajan läsnäoloa luovutuskirjaa allekirjoitettaessa.
-							p Luovutuksessa voi olla kysymyksessä kiinteistön kauppa, lahjoitus, vaihto tai esimerkiksi kauppakirjan korjaaminen, täydennys, purku tai esisopimuksen laadinta.
+								span.srv-Service_Title_Text= service.title
+							div!= service.introduction.brief
 							.src-Service_ReadMoreWrapper
-								a(href="#").src-Service_ReadMore Lue lisää
+								a(href='/palvelut#' + service.slug).src-Service_ReadMore Lue lisää
 									span.src-Service_ReadMore_Icon
 										+icon('arrow')
 
 		.srv-ServiceDisclaimers
-			p Teen myös tarvittaessa kotikäyntejä
+			p Teen kotikäyntejä Jyväskylässä ja lähikunnissa
 
 	section.pr-Prices
 		.small-wrapper
+			.anchor#hinnasto
 			h2.section-title.pr-SectionTitle Hinnasto
 			.srv-PriceDisclaimers
-				p Toimintatapoihini kuuluu veloitusperusteiden huolellinen selvittäminen ennen palvelun tilaamista, jolloin hinta ei tule asiakkaalle yllätyksenä.
+				p Toimintatapoihini kuuluu veloitusperusteiden huolellinen selvittäminen ennen palvelun tilaamista, jolloin hinta ei tule asiakkaalle yllätyksenä. Toimeksiannot mahdollisia myös etukäteen sovittavalla kiinteällä hinnalla.
 				p: strong En laskuta palvelutarpeen arvioinnista.
 
 			.row
-				.col-xs-12.col-sm-4
-					.pr-Price
-						.pr-Price_Icon
-							+icon('agreement')
-						h3.pr-Price_Title Asiakirjojen laadinta
-						p.pr-Price_Description 173,6 € (sis. alv. 24%)
-				.col-xs-12.col-sm-4
-					.pr-Price
-						.pr-Price_Icon
-							+icon('libra')
-						h3.pr-Price_Title Muut oikeudelliset palvelut
-						p.pr-Price_Description 173,6 € (sis. alv. 24%)
-				.col-xs-12.col-sm-4
-					.pr-Price
-						.pr-Price_Icon
-							+icon('car')
-						h3.pr-Price_Title Matkakulut
-						p.pr-Price_Description 173,6 € (sis. alv. 24%)
+				each price in data.prices
+					.col-xs-12.col-sm-4
+						.pr-Price
+							.pr-Price_Icon
+								+icon(price.icon)
+							h3.pr-Price_Title= price.title
+							p.pr-Price_Description= price.pricing
 
 	section.ctf-Contact
 		.small-wrapper
+			.anchor#ota-yhteytta
 			h2.section-title Ota yhteyttä
-	
+			.ctf-ContactDisclaimers
+				p Ota yhteyttä sähköpostitse osoitteeseen
+			.ctf-ContactMethod
+				a(href="mailto:markus@lakipalvelut-kumara.fi").ctf-ContactLink
+					span.ctf-ContactLink_Icon: +icon('mail')
+					span.ctf-ContactLink_Text markus@lakipalvelut-kumara.fi
+			.ctf-ContactDisclaimers
+				p tai puhelimitse, soittamalla tai tekstiviestillä numeroon
+			.ctf-ContactMethod
+				a(href="tel:+358451248650").ctf-ContactLink
+					span.ctf-ContactLink_Icon: +icon('phone')
+					span.ctf-ContactLink_Text 045&nbsp;124&nbsp;8650

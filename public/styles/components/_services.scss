@@ -1,4 +1,5 @@
 .srv-Services {
+	
 }
 
 .srv-ServiceWrapper {
@@ -6,13 +7,16 @@
 }
 
 .srv-ServiceContentWrapper {
-	padding-right: 0.5em;
 	border: 1px solid $black;
-	border-left-width: 0;
 
-	&.srv-ServiceContentWrapper-Left {
-		border-left-width: 1px;
-		border-right-width: 0;
+	@include from(sm) {
+		padding-right: 0.5em;
+		border-left-width: 0;
+
+		.srv-ServiceWrapper-Left & {
+			border-left-width: 1px;
+			border-right-width: 0;
+		}
 	}
 }
 
@@ -20,13 +24,22 @@
 	padding: 1em;
 }
 
+.srv-ServiceWrapper-Left .srv-ServiceImageWrapper {
+	order: 2;
+}
+
 .srv-ServiceImage {
-	width: 100%;
-	filter: grayscale(100%);
-	transition: filter 0.3s;
-	
-	.srv-ServiceWrapper:hover & {
-		filter: grayscale(0%);
+	display: none;
+
+	@include from(sm) {
+		display: inline-block;
+		width: 100%;
+		filter: grayscale(100%);
+		transition: filter 0.3s;
+		
+		.srv-ServiceWrapper:hover & {
+			filter: grayscale(0%);
+		}
 	}
 }
 
@@ -52,9 +65,11 @@
 .src-Service_ReadMore { 
 	display: inline-block;
 	padding: 0.5em 1em;
+	border: 1px solid $black;
 	
-	background: $black;
-	color: $white;
+	
+	background: $white;
+	color: $black;
 	
 	transition: all 0.15s ease-in-out;
 	
@@ -72,6 +87,42 @@
 
 .srv-ServiceDisclaimers {
 	text-align: center;
-  font-size: 2em;
+  font-size: 1.2em;
   margin: 2em 0;
+
+	@include from(sm) {
+		font-size: 2em;
+	}
+}
+
+.src-ServiceDescription {
+	padding: 1.5em 0;
+	font-size: 1rem;
+
+	@include from(sm) {
+		padding: 3em 0;
+	}
+
+	&:nth-child(odd) {
+		background: $black;
+		color: $white;
+
+		background: url('/images/bg2.jpg') $black;
+		background-position: bottom center;
+		background-size: cover;
+
+		@include from(sm) {
+			padding: 3em 0;
+		}
+		
+		.src-Service_ReadMore {
+			background: none;
+			color: white;
+			border-color: white;			
+		}
+	}
+}
+
+.src-ServiceDescription_Link {
+	padding: 1em; text-align: center;
 }

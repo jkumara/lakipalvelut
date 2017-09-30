@@ -12,6 +12,7 @@ $dusty-gray: #999;
 $silver: #ccc;
 $gallery: #efefef;
 $white: #fff;
+$blue: #1385e5;
 
 // Responsivity
 
@@ -20,14 +21,14 @@ $content-max-width: 75em;
 $small-wrapper-max-width: 56.25em;
 
 $breakpoint: (
-  sm: 37.5em, // 600px - tablet portrait
+  sm: 48em, // 600px - tablet portrait
   md: 56.25em, // 900px - tablet landscape
   lg: 75em // 1200px - desktop
 );
 
 // Flexbox grid
 
-$breakpoints: xs 0 100%, sm 37.5em 100%, md 56.25em 100%, lg 75em 100%;
+$breakpoints: xs 0 100%, sm 48em 100%, md 56.25em 100%, lg 75em 100%;
 $grid-columns: 12;
 $gutter-width: 1rem;
 $outer-margin: 0rem;

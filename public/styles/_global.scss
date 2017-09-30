@@ -21,30 +21,48 @@ body {
 }
 
 h1 {
-  font-size: 3.75rem;
+  font-size: 3rem;
   font-weight: 300;
+
+	@include from(sm) {
+		font-size: 3.75rem;
+	}
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
+	
+	@include from(sm) {
+		font-size: 3rem;
+	}
 }
 
 h3 {
   font-size: 1.875rem;
   font-weight: 300;
-  color: $black;
 }
 
 h4 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: $black;
 }
 
 a {
+	color: $blue;
   text-decoration: none;
   cursor: pointer;
+}
+
+strong {
+	font-weight: 600;
+}
+
+.anchor {
+	display: block;
+	position: relative;
+	top: -3.125rem;
+	visibility: hidden;
 }
 
 // Remove default button styles for accessibility

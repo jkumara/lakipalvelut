@@ -7,11 +7,15 @@
 .wrapper {
   width: 100%;
   max-width: $content-max-width;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   margin: 0 auto;
 
   @include from(lg) {
-	padding: 0;
+		padding: 0 1rem;
+	}
+
+  @include from(lg) {
+		padding: 0;
   }
 }
 
@@ -52,4 +56,8 @@
 	width: 1em;
 	height: 1em;
 	fill: currentColor;
+}
+
+.align-center {
+	text-align: center;
 }

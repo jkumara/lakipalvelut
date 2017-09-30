@@ -1,0 +1,45 @@
+.ctf-Contact {
+	font-size: 1rem;
+	text-align: center;
+}
+
+.ctf-ContactDisclaimers {
+	font-size: 1.2em;	
+}
+
+.ctf-ContactMethod {
+	display: inline-block;
+	padding: 0.5em 1em;
+	margin: 0.5em;
+
+	font-size: 1em;
+	cursor: pointer;
+	background: $black;
+
+	transition: all 0.15s ease-in-out;
+
+	&:hover {
+		box-shadow: 0 0 1em rgba($black, 0.2);
+		transform: scale(1.05);
+	}
+
+	@include from(sm) {
+		font-size: 1.5em;
+	}
+}
+
+.ctf-ContactLink {
+	color: $white;
+	line-height: 1;
+	
+	cursor: pointer;
+}
+
+.ctf-ContactLink_Icon {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.ctf-ContactLink_Text {
+	padding-left: 0.5em;
+}

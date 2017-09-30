@@ -15,12 +15,12 @@ $breakpoint: (
 
 @mixin from($bp) {
   @if map-has-key($breakpoint, $bp) {
-	@media screen and (min-width: #{map-get($breakpoint, $bp)}) {
-	  @content;
-	}
+		@media screen and (min-width: #{map-get($breakpoint, $bp)}) {
+			@content;
+		}
   }
   @else {
-	@warn "There is no breakpoint `#{$bp}` in $breakpoints!";
+		@warn "There is no breakpoint `#{$bp}` in $breakpoints!";
   }
 }
 
@@ -28,12 +28,12 @@ $breakpoint: (
 
 @mixin to($bp) {
   @if map-has-key($breakpoint, $bp) {
-	@media screen and (max-width: #{map-get($breakpoint, $bp)}) {
-	  @content;
-	}
+		@media screen and (max-width: #{map-get($breakpoint, $bp)}) {
+			@content;
+		}
   }
   @else {
-	@warn "There is no breakpoint `#{$bp}` in $breakpoints!";
+		@warn "There is no breakpoint `#{$bp}` in $breakpoints!";
   }
 }
 
@@ -41,11 +41,11 @@ $breakpoint: (
 
 @mixin from-to($from, $to) {
   @if map-has-key($breakpoint, $from) and map-has-key($breakpoint, $to) {
-	@media screen and (min-width: #{map-get($breakpoint, $from)}) and (max-width: #{map-get($breakpoint, $to)}) {
-	  @content;
-	}
+		@media screen and (min-width: #{map-get($breakpoint, $from)}) and (max-width: #{map-get($breakpoint, $to)}) {
+			@content;
+		}
   }
   @else {
-	@warn "Invalid from-to query!";
+		@warn "Invalid from-to query!";
   }
 }
