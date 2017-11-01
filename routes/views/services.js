@@ -5,7 +5,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals
 	locals.data = {}
 
-	locals.title = 'Palvelut - Laki- ja asiakirjapalvelut Kumara'
+	locals.title = 'Palvelut - Lakipalvelut Kumara'
 	
 	view.on('init', function(next) {
 		keystone.list('Service')
