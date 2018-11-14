@@ -4,7 +4,7 @@
   align-items: center;
 
   width: 100%;
-  height: 22.5em;
+  height: 100vh;
 	
   background: url('/images/hero-bg.jpg') $black;
   background-position: bottom center;
@@ -12,18 +12,12 @@
 
   font-size: 1rem;
   color: $white;
-
-	@media screen and (min-width: 25em) {
-		height: 25em;
-	}
-
-	@include from(sm) {
-		height: 37.5em;
-	}
 }
 
 .hr-LogoWrapper {
   display: inline-block;
+  padding: 2em 0;
+
   text-align: center;
 }
 
@@ -38,6 +32,7 @@
 }
 
 .hr-SloganWrapper {
+  margin-bottom: 4em;
 }
 
 .hr-Slogan {

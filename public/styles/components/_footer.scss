@@ -1,9 +1,14 @@
-.ftr-Footer {
+.ftr-Footer {	
+	position: absolute;
+	bottom: 1em;
+	left: 0;
+
+	width: 100%;
+
 	text-align: center;
-	margin: 6em 0;
-	
+
 	& > p {
-		font-size: 0.85em;
+		font-size: 0.75em;
 		margin: 0.25em 0;
 	}
 }
